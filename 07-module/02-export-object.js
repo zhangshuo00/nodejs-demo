@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-var circle = {
+module.exports = {
   'area' : function(radius){
     return Math.PI * radius * radius;
   },
@@ -13,5 +13,3 @@ var circle = {
   }
 };
 
-console.dir(module);
-module.exports = circle;

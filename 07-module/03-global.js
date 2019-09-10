@@ -30,4 +30,4 @@ global.objCircle = {
   }
 };
 
-module.exports = global.circle;
+

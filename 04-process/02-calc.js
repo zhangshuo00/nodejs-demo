@@ -1,11 +1,25 @@
 #!/usr/bin/node
 
-const msg = ['name','email','qq','mobile'];
-var usr = {},i = 0;
+const log = console.log,
+      arg = process.argv[2];
 
-console.log(msg[0] + ': ');
+if(typeof(arg) === 'undefined' || arg === '--help' || arg === '-h'){
+  help();
+}else{
+  calc();
+}
 
-process.stdin.on('data',function(data){
-  usr[msg[i]] = data.slice(0,data.length-1).toString('utf8');
-  console.log(msg[++i] + ': ');
-});
+function help(){
+  const msg = ''
+    + 'usage: cmd-name [OPTION] [expression]\n'
+    + 'evaluate the expression.\n'
+    + '\n'
+    + 'Mandatory arguments to long options are mandatory for short options too.\n'
+    + '  -h, --help output help information and exit\n';
+
+  log(msg);
+}
+
+function calc(){
+  log(arg + '=%s',eval(arg));
+}

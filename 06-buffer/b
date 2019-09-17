@@ -1,0 +1,11 @@
+hello b
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <img src="data:./qr-code.jpg;base64,data">  
+</body>
+</html>

@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const https = require('http'),
+const https = require('https'),
       url = require('url');
 
 var addr = 'https://api.github.com/search/repositories?q=user:' + (process.argv[2] || 'wangding');

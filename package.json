@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "test.js",
-  "dependencies": {},
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "eventproxy": "^1.0.0",
+    "express": "^4.17.1",
+    "superagent": "^5.1.0"
+  },
   "devDependencies": {
     "eslint": "^6.4.0"
   },

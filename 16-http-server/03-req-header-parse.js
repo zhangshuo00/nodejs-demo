@@ -1,23 +1,17 @@
 #!/usr/bin/node
-const http = require("http"),
+
+const http = require('http'),
       log = console.log;
-
 http.createServer((req,res)=>{
-  log('request headers',req.headers);
-  
-  log('authorization',req.headers.authorization);
+    log(`${req.method} ${req.url} HTTP/${req.httpVersion}`);
+    log(req.headers);
+    log('');
 
-  var auth = req.headers.authorization;
+    log('Host:',req.headers.host);
+    log('User-Agent:',req.headers['user-agent']);
+    log('Content-Type:',req.headers['content-type']);
+    log('');
 
-  if(typeof auth !== 'undefined'){
-    auth = auth.split(' ');
-    if(auth[0] === 'Basic'){
-      var buf = new Buffer(auth[1],'base64');
-
-      log(buf.toString('utf-8'));
-    }
-  }
-
-  log('user-agent',req.headers['user-agent']);
-  res.end('hello world');
+    req.pipe(process.stdout);
+    res.end('ok!');
 }).listen(8080);

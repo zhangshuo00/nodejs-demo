@@ -1,14 +1,16 @@
 #!/usr/bin/node
-
-const http = addr = process.argv[2] || 'http://sample.wangding.in/web/one-div.html',
+const http = require('http'),
       url = require('url');
 
-var protocol = url.parse(addr).protocol;
-console.log(protocol);
 
-const http = (protocol === 'http:') ? require('http') : require('https');
+var addr = process.argv[2] || 'http://sample.wangding.in/web/one-div.html';
+var options = url.parse(global.encodeURI(addr));
 
-http.get(addr,function(res){
+options.headers = {
+  'User-Agent' : '01-my-curl.js'
+};
+
+http.get(options,function(res){
     console.log(`HTTP/${res.httpVersion} ${res.statusCode} ${res.statusMessage}`);
 
     console.log(res.headers);

@@ -4,7 +4,7 @@ const http = require('http'),
 
 http.createServer((req,res)=>{
      
-    var html = '<!DOCTYPE html><html><head><title>Hello</title><head><body><h1>Hello world!</h1></body></html>'; 
+    var html = `<!DOCTYPE html><html><head><title>Hello</title><head><body><h1>Hello world!</h1></body></html>`; 
 
     if(req.url === '/'){
       //200 ok

@@ -24,9 +24,15 @@ http.createServer((req,res)=>{
                 res.end(data);
             });
             break;
+        case 'list':
+            res.setHeader('content-type','text/html');
+            fs.readFile(path.join(__dirname,'chapterList.html'),(err,data)=>{
+                if(err) console.log(err);
+                res.end(data);
+            });
+            break;
         case 'login':
         case 'addChapter':
-        case 'chapterList':
             res.setHeader('content-type','text/html');
             fs.readFile(path.join(__dirname,pathnameArr[1]+'.html'),(err,data)=>{
                 if(err) console.log(err);
@@ -68,9 +74,9 @@ http.createServer((req,res)=>{
             res.end();
             break;
         case 'json':
-            var jsonPath = path.join(__dirname,'json',pathnameArr[2]);
-            break;
-        
+            // var jsonPath = path.join(__dirname,'json',pathnameArr[2]);
+            // break;
+        // 
     }
     
 }).listen(8083);

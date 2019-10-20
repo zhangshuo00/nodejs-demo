@@ -93,6 +93,12 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script>
-    
+    $.ajax({
+        url:"http://localhost:8083/json/",
+        dataType:"json",
+        type:"get",
+        success:(data)=>{},
+        error:()=>{}
+    })
 </script>
 </html>

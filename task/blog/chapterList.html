@@ -94,11 +94,13 @@
 
 <script>
     $.ajax({
-        url:"http://localhost:8083/json/",
+        url:"http://localhost:8083/json/chapterData",
         dataType:"json",
         type:"get",
-        success:(data)=>{},
-        error:()=>{}
+        success:(res)=>{
+            console.log($('p.dateview')[0].firstElementChild);
+            
+        }
     })
 </script>
 </html>

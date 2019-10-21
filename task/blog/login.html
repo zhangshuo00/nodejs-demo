@@ -110,6 +110,33 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
+    $.ajax({
+        url:"http://localhost:8083/json/userData",
+        dataType:"json",
+        type:"get",
+        success:(res)=>{
+            // console.log(res.length);
+            $('#login').on('click',function(){
+                // console.log($('#username').val());
+                // console.log($('#pwd').val());
+                var userN = $('#username').val();
+                var pWD = $('#pwd').val();
+                var a = false;
+                for(var i = 0;i<res.length;i++){
+                    if(userN === res[i].username && pWD === res[i].pwd){
+                        window.location.href = 'http://localhost:8083/listmanager'
+                        a = true;
+                        break;
+                    }
+                }
+                if(!a){
+                    $('#pwd').after('<div style="color:red">用户无效</div>');
+                    alert('用户无效');
+                }
+                console.log(a)
+            })
+        }
+    })
 
 
     

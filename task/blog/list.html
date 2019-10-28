@@ -215,6 +215,16 @@
    function showList(){
 
    }
-   function addChapter(){}
+   function addChapter(){
+       window.location = 'http://localhost:8083/addChapter'
+   }
+   $.ajsx({
+       url:"http://localhost:8083/json/getAdd",
+       dataType:"json",
+       type:"get",
+       success:(res)=>{
+           console.log(res);
+       }
+   })
 </script>
 </html>

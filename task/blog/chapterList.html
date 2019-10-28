@@ -108,13 +108,13 @@
                 $('.dateview')[i].children[1].innerText = '作者：'+res[i].author;
                 $('.dateview')[i].children[3].innerText = '浏览（'+res[i].views+'）';
                 //点击阅读原文跳转到响应详情页
-                
+                // $('a.readmore').click()
             }
-            $('a.readmore').click((function(){
-                console.log($(this));
+            $('a.readmore').click(function(){
+                console.log(this);
                 // $(this)[0].href = 'http://localhost:8083/detail'+'?chapterId=1';
-                window.location.href = 'http://localhost:8083/detail'+'?chapterId=1';
-            }))
+                // window.location.href = 'http://localhost:8083/getDetail'+'?chapterId='+i;
+            })
             
         }
     })

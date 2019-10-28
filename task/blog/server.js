@@ -68,17 +68,23 @@ http.createServer((req,res)=>{
             res.end();
             break;
         case 'css':
-            var cssPath = path.join(__dirname,'./css',pathnameArr[2]);
+            let cssPath = path.join(__dirname,'./css',pathnameArr[2]);
             res.writeHead(200,{'content-type':'text/css'});
             res.write(fs.readFileSync(cssPath));
             res.end();
             break;
         case 'json':
+        case 'getDetail':
             res.writeHead(200,{'content-type':'text/json;charset=utf-8'});
-            fs.readFile(path.join(__dirname,pathnameArr[1],pathnameArr[2]+'.json'),(err,data)=>{
+            fs.readFile(path.join(__dirname,'./json',pathnameArr[2]+'.json'),(err,data)=>{
                 if(err) console.log(err);
                 res.end(data);
             });
+            break;
+        case 'add':
+        case 'getAdd':
+
+            break;
 
         // 
     }

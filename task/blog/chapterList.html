@@ -98,7 +98,7 @@
         dataType:"json",
         type:"get",
         success:(res)=>{
-            console.log(res);
+            // console.log(res);
             // console.log($('a.readmore'))
             for(var i =0;i<$('div.oneblog').length;i++){
                 $('#title_'+i).html(res[i].chapterName);
@@ -112,7 +112,7 @@
             }
             $('a.readmore').click(function(){
                 console.log(this);
-                // $(this)[0].href = 'http://localhost:8083/detail'+'?chapterId=1';
+                $(this)[0].href = 'http://localhost:8083/detail'+'?chapterId=1';
                 // window.location.href = 'http://localhost:8083/getDetail'+'?chapterId='+i;
             })
             

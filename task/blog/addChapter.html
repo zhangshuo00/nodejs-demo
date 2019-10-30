@@ -11,7 +11,7 @@
             padding: 0;
         }
         body {
-            background: url(./bg.jpg) repeat;
+            background: url() repeat;
         }
         table {
             border-collapse: collapse;
@@ -66,7 +66,7 @@
         .right {
             border: 1px solid white;
             margin-left: 250px;
-            background: url(./bg.jpg) repeat;
+            background: url() repeat;
         }
         nav {
             width: 100%;
@@ -177,12 +177,14 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
     function showList() {
-        window.location = "http://localhost:8083/listmanager"
+        window.location = "http://localhost:8083/listmanager";
+    }
+    function addChapter(){
+        return;
     }
     $("#sub").click(function() {
-        $.post("http://localhost:8083/add", {"title": $("#title").val(), "content": $("#ct").html()}, function(data) {
-            // window.location = "http://localhost:8083/listmanager";
-            console.log(res.url)
+        $.get("http://localhost:8083/add", {"title": $("#title").val(), "content": $("#ct").html()}, function() {
+            window.location = "http://localhost:8083/listmanager";
         })
     })
 </script>

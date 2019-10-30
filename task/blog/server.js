@@ -57,8 +57,6 @@ http.createServer((req,res)=>{
                 res.writeHead(200,{'content-type':'image/'+imgType});
                 res.write(fs.readFileSync(imgPath));
                 res.end();
-
-                // imgPath = './images/';
             }
             break;
         case 'js':
@@ -81,9 +79,24 @@ http.createServer((req,res)=>{
                 res.end(data);
             });
             break;
+        case 'getList':
+            res.writeHead(200,{'content-type':'text/json'});
+            res.write(fs.readFileSync(path.join(__dirname,'/json/list.json')));
+            res.end();
+            break;
         case 'add':
-        case 'getAdd':
-
+            var a = decodeURI(req.url).split('?')[1].split('&');
+            var title = a[0].split('=')[1];//当前输入的title
+            var content = a[1].split('=')[1];//当前输入的文章内容
+            // console.log(decodeURI(req.url))
+            var originalList = JSON.parse(fs.readFileSync(__dirname + '/json/list.json'));
+            var newList = new Object();
+            newList.title = title;
+            newList.content = content;
+            originalList.push(newList);
+            fs.writeFileSync(__dirname+'/json/list.json',JSON.stringify(originalList))
+            // console.log(JSON.parse(fs.readFileSync(__dirname + '/json/list.json')))//list.json数组形式
+            res.end();
             break;
 
         // 

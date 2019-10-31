@@ -31,7 +31,7 @@ http.createServer((req,res)=>{
                 if(err) console.log(err);
                 res.end(data);
             });
-            console.log('a')
+            // console.log('a')
             break;
         case 'login':
         case 'addChapter':
@@ -79,7 +79,7 @@ http.createServer((req,res)=>{
                 if(err) console.log(err);
                 res.end(data);
             });
-            console.log('b')
+            // console.log('b')
             break;
         case 'getList':
             res.writeHead(200,{'content-type':'text/json'});
@@ -98,6 +98,9 @@ http.createServer((req,res)=>{
             originalList.push(newList);
             fs.writeFileSync(__dirname+'/json/list.json',JSON.stringify(originalList))
             // console.log(JSON.parse(fs.readFileSync(__dirname + '/json/list.json')))//list.json数组形式
+            res.end();
+            break;
+        default:
             res.end();
             break;
     }

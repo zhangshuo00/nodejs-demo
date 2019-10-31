@@ -8,18 +8,12 @@ http.createServer((req,res)=>{
     // console.log(req.url);
     var pathname = url.parse(req.url).pathname;
     var pathnameArr = pathname.split('/');//将url中的pathname以/划分，返回数组
+    console.log(pathnameArr)
 
     switch(pathnameArr[1]){
         case 'listmanager':
             res.setHeader('content-type','text/html');
             fs.readFile(path.join(__dirname,'list.html'),(err,data)=>{
-                if(err) console.log(err);
-                res.end(data);
-            });
-            break;
-        case 'detail':
-            res.setHeader('content-type','text/html');
-            fs.readFile(path.join(__dirname,'chapter.html'),(err,data)=>{
                 if(err) console.log(err);
                 res.end(data);
             });
@@ -30,6 +24,14 @@ http.createServer((req,res)=>{
                 if(err) console.log(err);
                 res.end(data);
             });
+            break;
+        case 'detail':
+            res.setHeader('content-type','text/html');
+            fs.readFile(path.join(__dirname,'chapter.html'),(err,data)=>{
+                if(err) console.log(err);
+                res.end(data);
+            });
+            console.log('a')
             break;
         case 'login':
         case 'addChapter':
@@ -72,12 +74,12 @@ http.createServer((req,res)=>{
             res.end();
             break;
         case 'json':
-        case 'getDetail':
             res.writeHead(200,{'content-type':'text/json;charset=utf-8'});
             fs.readFile(path.join(__dirname,'./json',pathnameArr[2]+'.json'),(err,data)=>{
                 if(err) console.log(err);
                 res.end(data);
             });
+            console.log('b')
             break;
         case 'getList':
             res.writeHead(200,{'content-type':'text/json'});
@@ -98,8 +100,6 @@ http.createServer((req,res)=>{
             // console.log(JSON.parse(fs.readFileSync(__dirname + '/json/list.json')))//list.json数组形式
             res.end();
             break;
-
-        // 
     }
     
 }).listen(8083);

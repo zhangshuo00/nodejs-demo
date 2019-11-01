@@ -1,21 +1,16 @@
 #!/usr/bin/node
-const http = require("http"),
-      log = console.log;
+
+const http = require('http');
 
 http.createServer((req,res)=>{
-  log(`${req.method} ${req.url} ${req.httpVersion}`);
-  log(req.headers);
-  log();
-  
-  if(typeof req.headers.cookie !== 'undefined'){
-    //parse cookie
-    var data = req.headers.cookie.split(';') ;
-    log(data);
-  }
+    // console.log(`${req.method} ${req.url} ${req.httpVersion}`);
+    // console.log();
+    // console.log(req.headers);
+    // console.log();
 
+    console.log(req.headers['cookie']);
+    console.log(req.headers['cookie'].split(';'));
 
-  res.statusCode = 200;
-  res.setHeader('Set-cookie',['name=zhangsan']);
-
-  res.end('hello world');
+    res.setHeader('Set-cookie', ['name=zhangsan; Httponly', 'psd=123; max-age=1000']);
+    res.end('have a good day!');
 }).listen(8080);

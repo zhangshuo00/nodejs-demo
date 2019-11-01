@@ -32,9 +32,6 @@ http.createServer((req,res)=>{
         showNormal(res);
         break;
     }
-
-
-
     res.end('ok!');
 }).listen(8080);
 
@@ -53,6 +50,7 @@ function getUserNamePwd(auth){
     if(ath[0] === 'Basic'){
       var buf = new Buffer(ath[1],'base64');
       var usr = buf.toString('utf-8').split(':');
+      log(buf);
       log('username:',usr[0]);
       log('password:',usr[1]);
     }

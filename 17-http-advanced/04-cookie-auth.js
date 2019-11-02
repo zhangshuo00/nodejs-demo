@@ -23,7 +23,7 @@ http.createServer((req,res)=>{
             if(account.user === 'zhangsan' && account.password === '123'){
                 console.log('user:%s,password: %s',account.user,account.password);
                 isLogin = true;
-                showHome(res);//登录成功后显示主页
+                showHome(req,res);//登录成功后显示主页
             }else{
                 showLogin(res);//登录失败显示登录页面
             }
@@ -37,7 +37,7 @@ http.createServer((req,res)=>{
                 res.setHeader('Set-cookie',`login=${isLogin};max-age=600`);
                 showLogin(res);//退出登录后，显示登录页面
             }else{
-                showHome(res);//显示主页
+                showHome(req,res);//显示主页
             }
         }else{
             showLogin(res);//显示登录页
@@ -68,23 +68,21 @@ function showLogin(res){
     res.end(html);
 }
 //显示主页
-function showHome(res){
-    // var html = '<!DOCTYPE html>'
-    //             +'<html>'
-    //             +'  <head>'
-    //             +'      <meta charset="utf-8">'
-    //             +'      <title>home</title>'
-    //             +'  </head>'
-    //             +'  <body>'
-    //             +'      <h1>This is home page,you are login success!</h1>'
-    //             +'      <a href="/logout">logout</a>'
-    //             +'  </body>'
-    //             +'</html>';
-    res.setHeader('Content-Type','text/html');
-    // res.setHeader('Content-Length',Buffer.byteLength(html));
+function showHome(req,res){
+    var html = '<!DOCTYPE html>'
+                +'<html>'
+                +'  <head>'
+                +'      <meta charset="utf-8">'
+                +'      <title>home</title>'
+                +'  </head>'
+                +'  <body>'
+                +'      <h1>This is home page,you are login success!</h1>'
+                +'      <a href="/logout">logout</a>'
+                +'  </body>'
+                +'</html>';
+    res.setHeader('Content-Length',Buffer.byteLength(html));
     res.setHeader('Set-cookie',`login=${isLogin};max-age=600`);
 
     res.statusCode = 200;
-    // res.end(html);
-    res.end(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Home</title></head><body><h1>${user}你这是第 ${count} 次访问本网站！</h1></body></html>`)
+    res.end(html);
 }

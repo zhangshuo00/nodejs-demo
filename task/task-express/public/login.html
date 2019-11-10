@@ -108,33 +108,33 @@
         </div>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
 <script>
-    $.ajax({
-        url:"http://localhost:3000/json/data.json",
-        dataType:"json",
-        type:"get",
-        success:(res)=>{
-            // console.log(res.users[0]);
-            $('#login').on('click',function(){
-                var userN = $('#username').val();
-                var pWD = $('#pwd').val();
-                var a = false;
-                for(var i = 0;i<res.users.length;i++){
-                    if(userN === res.users[i].username && pWD === res.users[i].password){
-                        window.location.href = 'http://localhost:3000/list'
-                        a = true;
-                        break;
-                    }
-                }
-                if(!a){
-                    $('#pwd').after('<div style="color:red">用户无效</div>');
-                    alert('用户无效');
-                }
-                console.log(a)
-            })
-        }
-    })
+    // $.ajax({
+    //     url:"http://localhost:3000/json/data.json",
+    //     dataType:"json",
+    //     type:"get",
+    //     success:(res)=>{
+    //         // console.log(res.users[0]);
+    //         $('#login').on('click',function(){
+    //             var userN = $('#username').val();
+    //             var pWD = $('#pwd').val();
+    //             var a = false;
+    //             for(var i = 0;i<res.users.length;i++){
+    //                 if(userN === res.users[i].username && pWD === res.users[i].password){
+    //                     window.location.href = 'http://localhost:3000/list'
+    //                     a = true;
+    //                     break;
+    //                 }
+    //             }
+    //             if(!a){
+    //                 $('#pwd').after('<div style="color:red">用户无效</div>');
+    //                 alert('用户无效');
+    //             }
+    //             console.log(a)
+    //         })
+    //     }
+    // })
 
     
 </script>

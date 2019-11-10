@@ -214,7 +214,7 @@
         type:"get",
         success:(res)=>{
             console.log(res.chapterList);
-            // console.log($('#result').html())
+            console.log($('#result'))
             for(var i = 0;i<res.chapterList.length;i++){
                 var data = $('#result').html() + '<tr><td>109</td><td>'+res.chapterList[i].title+'</td><td>'+res.chapterList[i].views+'</td><td>213</td></tr>';
                 $('#result').html(data);

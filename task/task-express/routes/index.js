@@ -1,16 +1,13 @@
 var express = require('express');
 var app = express();
-var path = require('path');
+// var path = require('path');
 // var router = express.Router();
 
 /* GET home page. */
-app.get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname,"..","public","login.html"))
+app.get('/', function(req, res) {
+    res.render('index');
 });
-app.get('/username/:id',function(req,res){
-  console.log(req.username.id)
-})
-app.get('/list',function(req,res,next){
-  res.sendFile(path.join(__dirname,"..","public","list.html"))
+app.post('/getList',function(req,res,next){
+    console.log(req.body.username,req.body.pwd)
 })
 module.exports = app;

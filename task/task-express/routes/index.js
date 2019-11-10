@@ -22,10 +22,11 @@ app.post('/list',function(req,res,next){
             res.render('list',{list : JSON.parse(dataJSON).chapterList});
             break;
         }else{
+            //否则提示用户错误，登录失败
             res.send('用户信息有误！');
         }
     }
 
-    //否则提示用户错误，登录失败
+
 })
 module.exports = app;

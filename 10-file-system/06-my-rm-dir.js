@@ -3,5 +3,10 @@
 const fs = require('fs'),
       dir = process.argv[2];
 
-fs.rmdirSync(dir);
+try{
+    fs.rmdirSync(dir);
+}catch(err){
+    console.error(err.message);
+    process.exit(1);
+}
 

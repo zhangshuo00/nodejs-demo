@@ -1,6 +1,11 @@
 #!/usr/bin/node
 
 const fs = require('fs'),
-      dst = process.argv[2];
+      dst = process.argv[2] || __filename;
 
-console.log(fs.statSync(dst));
+try{
+    console.log(fs.statSync(dst));
+}catch(e){
+    console.error(e.message);
+    process.exit(1);
+}

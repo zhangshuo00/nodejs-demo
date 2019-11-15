@@ -1,5 +1,9 @@
 #!/usr/bin/node
 
+// 从命令行参数获取图片文件名
+// 把图片数据生成 data URI格式的数据
+// 将 data URI嵌入到html页面，通过http服务监听8080端口
+// 在浏览器得到页面
 const fs = require('fs'),
       log = console.log,
       http = require('http'),
@@ -12,7 +16,6 @@ if(process.argv.length !== 3){
 }
 
 try{
-  
   var data = fs.readFileSync(file).toString('base64');
 }catch(e){
   console.error(e.message);
@@ -20,7 +23,7 @@ try{
 }
 
 //log(data);
-var ext = path.extname(file);
+var ext = path.extname(file);//返回文件的扩展名
 var uriData = 'data:image/' + ext.slice(1,ext.length)+';base64,'+data;
 
 var html = ''

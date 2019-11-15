@@ -15,7 +15,7 @@ try{
 }
 if(buf.toString('ascii',0,2) === 'BM'){
 
-log('width:',buf.readInt32LE(0x12));
-log('height:',buf.readInt32LE(0x16));
-log('deepth:',buf.readUInt16LE(0x1c));
+log('width:',buf.readInt32LE(0x12));//获取图片的宽度
+log('height:',buf.readInt32LE(0x16));//图片的高度
+log('deepth:',buf.readUInt16LE(0x1c));//图片的颜色深度
 }

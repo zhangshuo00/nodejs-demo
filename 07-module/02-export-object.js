@@ -13,3 +13,10 @@ module.exports = {
   }
 };
 
+// function Circle(radius){
+//   var _r = radius;
+//   this.diameter = ()=> 2*_r;
+//   this.circumference = ()=>Math.PI * 2 * _r;
+//   this.area = ()=> Math.PI * _r * _r;
+// }
+// module.exports = Circle

@@ -2,11 +2,8 @@
 
 const cp = require('child_process');
 
-console.log('i am father with id:',process.pid);
+console.log('当前进程的ID：',process.pid);
 cp.fork('./02-child.js');
-
-
-global.setTimeout(function(){
-  console.log('father bye');
-  process.exit();
-},5000);
+setTimeout(() => {
+  console.log('5 seconds passed. father_process over');
+}, 5000);

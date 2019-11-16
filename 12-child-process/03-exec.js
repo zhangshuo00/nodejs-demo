@@ -1,18 +1,9 @@
 #!/usr/bin/node
 
-
 const cp = require('child_process');
+var cmd = process.argv[2];
 
-var cmd = '';
-
-for(var i =2;i<process.argv.length;i++){
-  cmd+=(process.argv[i]+' ');
-}
-
-cp.exec(cmd,function(err,out,error){
-  if(err){
-    console.error(error);
-    process.exit(1);      
-  }
-  console.log(out);
-});
+cp.exec(cmd,(err,stdout)=>{
+  if(err) console.error(err.message);
+  console.log(stdout);
+})

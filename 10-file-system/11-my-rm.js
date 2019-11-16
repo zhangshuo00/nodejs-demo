@@ -14,10 +14,8 @@ if(!fs.existsSync(pathname)){
 }
 //是文件的话，删除
 if(fs.statSync(pathname).isFile()) fs.unlinkSync(pathname);
-
 //是目录的话，删除该目录以及该目录下的所有文件以及子目录
 if(fs.statSync(pathname).isDirectory()) deleteDir(pathname);
-
 function deleteDir(pathname){
     var files = fs.readdirSync(pathname);
 

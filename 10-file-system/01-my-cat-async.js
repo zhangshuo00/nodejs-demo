@@ -1,17 +1,14 @@
 #!/usr/bin/node
 
-const fs = require('fs'),
-      file = process.argv[2] || __filename;
+const fs = require('fs');
+// 获取命令行参数，没有的时候打印本身内容
+const file = process.argv[2] || __filename;
 
-fs.readFile(file,function(err,data){
-  if(err){
+fs.readFile(file,function(err,buf){
+  if(err) {
     console.error(err.message);
     process.exit(1);
-  }else{
-
-    console.log(data.toString('utf-8'));
+  }else {
+    console.log(buf.toString('utf-8'));
   }
-
-
-
 })

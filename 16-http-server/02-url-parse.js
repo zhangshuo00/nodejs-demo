@@ -14,6 +14,10 @@ http.createServer((req,res)=>{
   log('auth:',addr.auth);
   log('username:',addr.username);
   log('password:',addr.password);
+  log('host name: ',addr.hostname);
+  log('host: ',addr.host);
+  log('search:',addr.search);
+  log('hash :',addr.hash)
 
   log('path-name:',addr.pathname);
   log('path parse:',addr.pathname.split('/'));

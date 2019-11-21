@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const msg = ['name','email','qq','mobile'];
-var usr = {},i =0;
+var usr = {},i =1;
 
 console.log(msg[0] + ': ');
 

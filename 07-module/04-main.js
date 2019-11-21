@@ -14,7 +14,6 @@ log(n1.getCount());
 log(n2.getCount());
 
 n2.add();
-n2.add();
 
 log(n1.getCount());
 log(n2.getCount());
